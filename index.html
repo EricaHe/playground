@@ -25,7 +25,10 @@
 
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-			<p id="show_profile"></p>
+			<p id="show_id"></p>
+			<p id="show_name"></p>
+			<p id="show_image_url"></p>
+			<p id="show_email"></p>
 			
 			<a href="#" onclick="signOut();">Sign out</a>
 
@@ -40,7 +43,10 @@
 					function onSignIn(googleUser) {
 						var profile = googleUser.getBasicProfile();
 						console.log(profile);
-						document.getElementById("show_profile").innerHTML = 'ID: ' + profile.getId() + '\nName: ' + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEmail: ' + profile.getEmail();
+						document.getElementById("show_id").innerHTML = 'ID: ' + profile.getId()
+						document.getElementById("show_name").innerHTML = 'Name: ' + profile.getName()
+						document.getElementById("show_image_url").innerHTML = 'Image URL: ' + profile.getImageUrl()
+						document.getElementById("show_email").innerHTML = 'Email: ' + profile.getEmail();
 					}
 					function signOut() {
 						var auth2 = gapi.auth2.getAuthInstance();
