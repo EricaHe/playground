@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>Playground of EricaHe</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-				<meta name="google-signin-client_id" content="494023093566-9do3rmqvbrcshehitobecj6ovj64cs3q.apps.googleusercontent.com">
+		<meta name="google-signin-client_id" content="494023093566-9do3rmqvbrcshehitobecj6ovj64cs3q.apps.googleusercontent.com">
 		<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
@@ -21,7 +21,7 @@
 				<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trying to build a Google Sign-In here. _(:зゝ∠)_
 			</h3>
 
-			<p>The website is simply used for testing and learning purpose. Don't click the button below if you are not willing to release your personal information to me.</p>
+			<p>The website is simply used for testing and learning purpose.</p>
 
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
@@ -29,6 +29,7 @@
 			<p id="show_name"></p>
 			<p id="show_image_url"></p>
 			<p id="show_email"></p>
+			<p id="show_id_token"></p>
 			
 			<a href="#" onclick="signOut();">Sign out</a>
 
@@ -47,6 +48,9 @@
 						document.getElementById("show_name").innerHTML = 'Name: ' + profile.getName()
 						document.getElementById("show_image_url").innerHTML = 'Image URL: ' + profile.getImageUrl()
 						document.getElementById("show_email").innerHTML = 'Email: ' + profile.getEmail();
+
+						var id_token = googleUser.getAuthResponse().id_token;
+						document.getElementById("show_id_token").innerHTML = "ID Token: " + id_token;
 					}
 					function signOut() {
 						var auth2 = gapi.auth2.getAuthInstance();
