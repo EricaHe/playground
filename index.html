@@ -24,9 +24,10 @@
 			<p>The website is simply used for testing and learning purpose. Don't click the button below if you are not willing to release your personal information to me.</p>
 
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+			<p id="show_profile"></p>
 			
 			<a href="#" onclick="signOut();">Sign out</a>
-
 
 			<footer class="site-footer">
 				<span class="site-footer-owner"><a href="https://github.com/EricaHe/creative_design">Playground</a> is maintained by <a href="https://github.com/EricaHe">EricaHe</a>.</span>
@@ -38,10 +39,8 @@
 				<script>
 					function onSignIn(googleUser) {
 						var profile = googleUser.getBasicProfile();
-						console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-						console.log('Name: ' + profile.getName());
-						console.log('Image URL: ' + profile.getImageUrl());
-						console.log('Email: ' + profile.getEmail());
+						console.log(profile);
+						document.getElementById("show_profile").innerHTML = 'ID: ' + profile.getId() + '\nName: ' + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEmail: ' + profile.getEmail();
 					}
 					function signOut() {
 						var auth2 = gapi.auth2.getAuthInstance();
