@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<title>Playground of EricaHe</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function post(url,param) {
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", url, true);
+				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				xhr.setRequestHeader("Authorization",'OAuth oauth_consumer_key="hcbkvBqTiV80ZOwusXv4FE1PR", oauth_nonce="77452d0e5edec685f2ee834cc95f8224", oauth_signature="K3avP9tLYOvqMGkumnNfrP2U9pY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1471507279", oauth_version="1.0"');
+				xhr.onreadystatechange = function(){
+				    var XMLHttpReq = xhr;
+					if (XMLHttpReq.readyState == 4) {
+						if (XMLHttpReq.status == 200) {
+							var text = XMLHttpReq.responseText;
+							console.log(text);
+						}
+					}
+				}
+				xhr.send(param);
+			}
+		</script>
+	</body>
+</html>
